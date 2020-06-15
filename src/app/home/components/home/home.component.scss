@@ -1,0 +1,16 @@
+.home {
+    /*IMPORTANTE*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .component {
+    color: white;
+    width: 60%;
+    text-align: center;
+  }
+  p {
+    font-size: 15pt;
+  }
