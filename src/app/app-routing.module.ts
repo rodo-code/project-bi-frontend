@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { UserGuard } from './guards/user/user.guard';
+import { AdminGuardGuard } from './guards/admin/admin-guard.guard';
 
 
 const routes: Routes = [
@@ -22,7 +24,17 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
+    canActivate: [UserGuard],
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    path: 'admin',
+    canActivate: [AdminGuardGuard],
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   }
 ];
 

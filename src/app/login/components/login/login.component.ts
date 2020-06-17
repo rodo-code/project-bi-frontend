@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from './../../../services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private userService: UserService
   ) {
     this.buildForm();
   }
@@ -25,7 +27,15 @@ export class LoginComponent implements OnInit {
   login(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
-      console.log(this.form.value);
+      // console.log(this.form.value);
+      const logindata = this.form.value;
+      if (logindata.username === 'admin' && logindata.username === 'admin') {
+        this.userService.setToken('2');
+        this.router.navigate(['./admin']);
+      } else {
+        this.userService.setToken('1');
+        this.router.navigate(['./dashboard']);
+      }
     }
   }
 

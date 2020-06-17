@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "flexboxgrid": "^6.3.1",
+    "ngx-cookie-service": "^3.0.4",
     "ngx-powerbi": "^3.0.0",
     "powerbi-client": "^2.11.0",
     "rxjs": "~6.4.0",
