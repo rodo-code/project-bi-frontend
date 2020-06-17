@@ -1,0 +1,39 @@
+<div class="cont">
+    <div class="login-form">
+        <p>Registrar</p> <br>
+        <form [formGroup]="form" (ngSubmit)="register($event)">
+            <mat-form-field class="example-full-width">
+              <input formControlName="username" matInput placeholder="Usuario" type="text">
+              <mat-error *ngIf="usernameField.hasError('required')">
+                Este campo es requerido
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <input formControlName="password" matInput placeholder="Contraseña" type="password">
+                <mat-error *ngIf="passwordField.hasError('required')">
+                  Este campo es requerido
+                </mat-error> 
+                <mat-error *ngIf="passwordField.hasError('minlength')">
+                  La contraseña debe tener al menos 8 caracteres.
+                </mat-error> 
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <input formControlName="otherpassword" matInput placeholder="Repetir Contraseña" type="password">
+              <mat-error *ngIf="otherpasswordField.hasError('required')">
+                Este campo es requerido
+              </mat-error>
+              <mat-error *ngIf="otherpasswordField.hasError('mustMatch')">
+                Las contraseñas no coinciden
+              </mat-error>
+            </mat-form-field>
+          <br>
+          <br>
+          
+          <button type="submit" [disabled]="form.invalid" class="boton-row" mat-raised-button color="primary">Registrar</button>
+        <a routerLink="/home" class="boton-row" mat-raised-button color="primary">Regresar</a>  
+        </form>
+        
+    </div>
+  </div>

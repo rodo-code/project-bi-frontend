@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Reportes</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard/bolivia">Bolivia</a>
+      <a mat-list-item href="#">Santa Cruz</a>
+      <a mat-list-item href="#">Beni</a>
+      <a mat-list-item href="#">Cochabamba</a>
+      <a mat-list-item href="#">La Paz</a>
+      <a mat-list-item href="#">Oruro</a>
+      <a mat-list-item href="#">Potosi</a>
+      <a mat-list-item href="#">Pando</a>
+      <a mat-list-item href="#">Chuquisaca</a>
+      <a mat-list-item href="#">Tarija</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Business Intelligence Covid-19 Bolivia</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

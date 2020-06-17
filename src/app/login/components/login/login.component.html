@@ -1,0 +1,24 @@
+<div class="cont">
+    <div class="login-form">
+        <p>Entrar</p> <br>
+        <form [formGroup]="form" (ngSubmit)="login($event)"> 
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Usuario" type="text" formControlName="username">
+              <mat-error *ngIf="usernameField.hasError('required')">
+                Este campo es requerido
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Contraseña" type="password" formControlName="password">
+                <mat-error *ngIf="passwordField.hasError('required')">
+                  Este campo es requerido
+                </mat-error>
+              </mat-form-field>
+              <br>
+              <br>
+              <button [disabled]="form.invalid" type="submit" class="boton-row" mat-raised-button color="primary">Ingresar</button>
+              <a routerLink="/home" class="boton-row" mat-raised-button color="primary">Regresar</a>
+          </form>
+    </div>
+  </div>
