@@ -3,19 +3,20 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { MustMatch } from 'src/app/utils/validators';
-
+import { UserService } from './../../../services/user/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  error: string;
   form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
     this.buildForm();
    }
@@ -26,7 +27,21 @@ export class RegisterComponent implements OnInit {
   register(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
-      console.log(this.form.value);
+      // console.log(this.form.value);
+      this.userService.register(this.form.value.username, this.form.value.password).subscribe(
+        (data) => {
+          this.error = '0';
+        },
+        (error) => {
+          console.log(error.status);
+          if (error.status === 403) {
+            this.error = '1';
+            // alert('Este usuario ya existe');
+          } else {
+            // alert('Usuario Creado con exito');
+          }
+        }
+      );
     }
   }
 

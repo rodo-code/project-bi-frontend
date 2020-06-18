@@ -1,0 +1,29 @@
+.cont {
+    /*IMPORTANTE*/
+    display: flex;
+    //justify-content: center;
+    //align-items: center;
+    // background-color: #7C42BD;
+    height: 100%;
+  }
+  
+  .case-register-form {
+    
+    //text-align: center;
+    margin: 2%;
+    padding: 2%;
+  }
+  p {
+    font-size: 11pt;
+  }
+  .boton-row {
+      margin: 5px;
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .mat-form-field, .mat-radio-gropu {
+    margin-left: 20px;
+    margin-right: 20px;
+  }

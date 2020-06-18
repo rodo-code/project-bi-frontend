@@ -3,21 +3,9 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>
-      Reportes
-      
-    </mat-toolbar>
+    <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard/bolivia">Bolivia</a>
-      <a mat-list-item href="#">Santa Cruz</a>
-      <a mat-list-item href="#">Beni</a>
-      <a mat-list-item href="#">Cochabamba</a>
-      <a mat-list-item href="#">La Paz</a>
-      <a mat-list-item href="#">Oruro</a>
-      <a mat-list-item href="#">Potosi</a>
-      <a mat-list-item href="#">Pando</a>
-      <a mat-list-item href="#">Chuquisaca</a>
-      <a mat-list-item href="#">Tarija</a>
+      <a mat-list-item routerLink="/admin/create">Registrar Caso</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -32,13 +20,15 @@
       </button>
       <div class="header-row row between-xs middle-xs">
         <div>
-          <span>Business Intelligence Covid-19 Bolivia</span>
+          <span>Sitio de Administrador</span>
         </div>
         <div>
-          <button class="my-buton" (click)="logout()" mat-raised-button color="warn">Salir</button>
+          <a class="my-boton" mat-raised-button color="accent" routerLink="./../dashboard">Ir a Dashboard</a>
+          <button (click)="logout()" class="my-boton" mat-raised-button color="warn">Salir</button>
         </div>
       </div>
     </mat-toolbar>
+    <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

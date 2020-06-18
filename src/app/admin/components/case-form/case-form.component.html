@@ -1,0 +1,49 @@
+<div class="cont">
+    <div class="case-register-form">
+        <h3>Registrar Caso</h3>
+        <form [formGroup]="form" (ngSubmit)="register($event)">
+            <mat-form-field>
+                <input matInput placeholder="Edad" type="number" formControlName="age">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha de Contagio" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+                         
+            <br>
+            <br>
+            <mat-form-field class="example-full-width">
+              <input type="text" placeholder="Municipio" aria-label="Municipio" matInput formControlName="city" [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option.city}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Distrito" type="text" formControlName="district">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Zona" type="text" formControlName="zone">
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-radio-group aria-label="Select an option form" formControlName="genre">
+              <p>Seleccione Genero</p>
+              <mat-radio-button value="1">Masculino</mat-radio-button>
+              <mat-radio-button value="2">Femenino</mat-radio-button>
+            </mat-radio-group> 
+            <br>
+            <br>
+            <mat-radio-group aria-label="Select an option form" formControlName="origin">
+              <p>El contagio fue:</p>
+              <mat-radio-button value="1">Local</mat-radio-button>
+              <mat-radio-button value="2">En Otro pais</mat-radio-button>
+            </mat-radio-group> 
+            <br>
+            <br>
+            <button mat-raised-button color="primary" type="submit">Registrar</button>
+        </form>
+    </div>
+</div>

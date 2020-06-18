@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuardGuard } from '../guards/admin/admin-guard.guard';
-
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { CaseFormComponent } from './components/case-form/case-form.component';
 const routes: Routes = [
   {
     path: '',
     canActivate: [AdminGuardGuard],
-    component: AdminComponent
+    component: NavigationComponent,
+    children: [
+      {
+        path: 'create',
+        component: CaseFormComponent
+      }
+    ]
   }
 ];
 

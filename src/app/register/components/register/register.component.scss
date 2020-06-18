@@ -21,6 +21,16 @@
       margin: 5px;
   }
 
+  .message-warn {
+    background-color: #FF9696;
+    color: black;
+    margin: 10px;
+  }
+  .message-ok {
+    background-color: #96FFB2;
+    color: black;
+    margin: 10px;
+  }
   
   ::ng-deep.mat-focused .mat-form-field-label {
     /*change color of label*/

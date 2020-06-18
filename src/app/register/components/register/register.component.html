@@ -1,5 +1,11 @@
 <div class="cont">
-    <div class="login-form">
+  <div class="login-form">  
+  <div class="message-warn" *ngIf="error === '1'">Este Usuario ya Existe</div>
+    
+    <div class="message-ok" *ngIf="error === '0'">Usuario creado Exitosamente</div>
+    
+    
+    
         <p>Registrar</p> <br>
         <form [formGroup]="form" (ngSubmit)="register($event)">
             <mat-form-field class="example-full-width">
