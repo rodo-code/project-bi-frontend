@@ -4,11 +4,23 @@
         <form [formGroup]="form" (ngSubmit)="register($event)">
             <mat-form-field>
                 <input matInput placeholder="Edad" type="number" formControlName="age">
+                <mat-error *ngIf="form.get('age').hasError('required')">
+                  La edad es requerida
+                </mat-error>
+                <mat-error *ngIf="form.get('age').hasError('min')">
+                  La edad debe ser mayor a 0
+                </mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput [matDatepicker]="picker" placeholder="Fecha de Contagio" formControlName="date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="form.get('date').hasError('required')">
+                  La fecha es requerida
+                </mat-error>
+                <mat-error *ngIf="form.get('date').hasError('date')">
+                  Introduzca una fecha válida
+                </mat-error>
             </mat-form-field>
                          
             <br>
@@ -19,7 +31,14 @@
                 <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                   {{option.city}}
                 </mat-option>
+                
               </mat-autocomplete>
+              <mat-error *ngIf="form.get('city').hasError('required')">
+                La ciudad es requerida
+              </mat-error>
+              <mat-error *ngIf="form.get('city').hasError('cityv')">
+                La municipio no existe en Bolivia
+              </mat-error>
             </mat-form-field>
             <mat-form-field>
               <input matInput placeholder="Distrito" type="text" formControlName="district">
@@ -31,19 +50,22 @@
             <br>
             <mat-radio-group aria-label="Select an option form" formControlName="genre">
               <p>Seleccione Genero</p>
+
               <mat-radio-button value="1">Masculino</mat-radio-button>
               <mat-radio-button value="2">Femenino</mat-radio-button>
+              
             </mat-radio-group> 
             <br>
             <br>
             <mat-radio-group aria-label="Select an option form" formControlName="origin">
               <p>El contagio fue:</p>
+              
               <mat-radio-button value="1">Local</mat-radio-button>
               <mat-radio-button value="2">En Otro pais</mat-radio-button>
             </mat-radio-group> 
             <br>
             <br>
-            <button mat-raised-button color="primary" type="submit">Registrar</button>
+            <button [disabled]="form.invalid" mat-raised-button color="primary" type="submit">Registrar</button>
         </form>
     </div>
 </div>
