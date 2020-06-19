@@ -9,15 +9,7 @@
     </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard/bolivia">Bolivia</a>
-      <a mat-list-item href="#">Santa Cruz</a>
-      <a mat-list-item href="#">Beni</a>
-      <a mat-list-item href="#">Cochabamba</a>
-      <a mat-list-item href="#">La Paz</a>
-      <a mat-list-item href="#">Oruro</a>
-      <a mat-list-item href="#">Potosi</a>
-      <a mat-list-item href="#">Pando</a>
-      <a mat-list-item href="#">Chuquisaca</a>
-      <a mat-list-item href="#">Tarija</a>
+      
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -32,10 +24,11 @@
       </button>
       <div class="header-row row between-xs middle-xs">
         <div>
-          <span>Business Intelligence Covid-19 Bolivia</span>
+          <span>Business Intelligence Covid-19 Bolivia (Actualizado al 19 de Junio de 2020)</span>
         </div>
         <div>
-          <button class="my-buton" (click)="logout()" mat-raised-button color="warn">Salir</button>
+          <button *ngIf="rol === '2'" class="my-boton" (click)="goDashboard()" mat-raised-button color="accent">Ir a Administrador</button>
+          <button class="my-boton" (click)="logout()" mat-raised-button color="warn">Salir</button>
         </div>
       </div>
     </mat-toolbar>

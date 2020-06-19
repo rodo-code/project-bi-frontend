@@ -7,6 +7,7 @@ import { City } from './../../../models/city.model';
 import { MyValidators } from './../../../utils/validators';
 import { CaseRegister } from 'src/app/models/case-register.model';
 import { Format } from './../../../utils/formaters';
+import { CaseService } from './../../../services/case/case.service';
 @Component({
   selector: 'app-case-form',
   templateUrl: './case-form.component.html',
@@ -14,13 +15,14 @@ import { Format } from './../../../utils/formaters';
 })
 export class CaseFormComponent implements OnInit {
   options: City[] = new CityService().getCities();
-
+  registerMessage = false;
   filteredOptions: Observable<City[]>;
 
   form: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private cityService: CityService
+    private cityService: CityService,
+    private caseService: CaseService
   ) {
     this.options = cityService.getCities();
     this.buildForm();
@@ -78,6 +80,15 @@ export class CaseFormComponent implements OnInit {
         oriContgId: Number(this.form.value.origin)
       };
       console.log(data);
+      this.caseService.registerCase(data).subscribe(
+        () => {
+          alert('Registro Exitoso');
+          this.form.reset();
+        },
+        (error) => {
+          console.log(error.status);
+        }
+      );
     }
   }
 

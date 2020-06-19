@@ -10,7 +10,7 @@ import { Router} from '@angular/router';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-
+  rol: string;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -19,11 +19,17 @@ export class NavigationComponent {
 
   constructor(private breakpointObserver: BreakpointObserver,
               private userService: UserService,
-              private router: Router) {}
+              private router: Router) {
+                this.rol = userService.getRol();
+              }
 
   logout() {
     this.userService.logout();
     this.router.navigate(['./home']);
+  }
+
+  goDashboard() {
+    this.router.navigate(['./admin']);
   }
 
 }

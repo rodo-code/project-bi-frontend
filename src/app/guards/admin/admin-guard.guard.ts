@@ -15,6 +15,9 @@ export class AdminGuardGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    console.log('Admin Guard');
+    console.log(this.userService.getRol());
+    console.log(this.userService.getToken);
     if (this.userService.getRol() === '2') {
       return true;
     } else {

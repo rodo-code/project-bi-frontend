@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { LoginCredentials } from './../../models/login.model';
-import { RegisterCredentials } from 'src/app/models/register.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,7 +49,6 @@ export class UserService {
     return this.cookies.get('rol');
   }
   logout() {
-    this.cookies.delete('token');
-    this.cookies.delete('rol');
+    this.cookies.deleteAll();
   }
 }

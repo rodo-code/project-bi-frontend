@@ -20,10 +20,31 @@
       margin: 5px;
   }
 
+  .message-ok {
+    background-color: #96FFB2;
+    color: black;
+    margin: 10px;
+  }
+
   .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
   }
   .mat-form-field, .mat-radio-gropu {
     margin-left: 20px;
     margin-right: 20px;
+  }
+
+  ::ng-deep.mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: black !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: black !important;;
   }
