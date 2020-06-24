@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminGuardGuard } from '../guards/admin/admin-guard.guard';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CaseFormComponent } from './components/case-form/case-form.component';
+import { CsvFormComponent } from './components/csv-form/csv-form.component';
 const routes: Routes = [
   {
     path: '',
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: CaseFormComponent
+      },
+      {
+        path: 'create-csv',
+        component: CsvFormComponent
       }
     ]
   }

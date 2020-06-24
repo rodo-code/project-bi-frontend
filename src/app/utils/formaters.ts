@@ -17,4 +17,17 @@ export class Format {
         }
         return resp;
     }
+    static formatGender(s: string) {
+        if (s === 'Masculino') {
+            return 1;
+        } else {
+            return 2;
+        }
+    }
+    static formatOrigin(s: string) {
+        if (s === 'Importado') {
+            return 2;
+        }
+        return 1;
+    }
 }

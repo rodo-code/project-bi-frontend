@@ -364,4 +364,18 @@ export class CityService {
     }
     return 0;
   }
+  getIdCityFromString(cityName: string) {
+    const cities = this.getCities();
+    const value = cityName;
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < cities.length; i++) {
+      const city = cities[i].city;
+      // console.log(i + city);
+      if (city === value) {
+        console.log(i + city);
+        return i + 1;
+      }
+    }
+    return 0;
+  }
 }

@@ -25,6 +25,6 @@ export class CaseService {
       'Authorization': 'Token ' + this.userService.getToken()
     });
     const options = { headers: headersd };
-    return this.http.post(`${environment.url_api}/register-case`, caser, options);
+    return this.http.post<CaseRegister>(`${environment.url_api}/register-case`, caser, options);
   }
 }

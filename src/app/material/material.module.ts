@@ -8,6 +8,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [],
   imports: [
@@ -18,7 +21,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatDatepickerModule,
     MatNativeDateModule,
     MatAutocompleteModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -27,7 +33,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatDatepickerModule,
     MatNativeDateModule,
     MatAutocompleteModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

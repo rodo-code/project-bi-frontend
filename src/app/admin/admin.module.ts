@@ -12,8 +12,9 @@ import { MatListModule } from '@angular/material/list';
 import { CaseFormComponent } from './components/case-form/case-form.component';
 import { MaterialModule } from './../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CsvFormComponent } from './components/csv-form/csv-form.component';
 @NgModule({
-  declarations: [  NavigationComponent, CaseFormComponent],
+  declarations: [  NavigationComponent, CaseFormComponent, CsvFormComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
