@@ -376,6 +376,7 @@ export class CityService {
         return i + 1;
       }
     }
+    console.log('No encontre ' + cityName);
     return 0;
   }
 }
